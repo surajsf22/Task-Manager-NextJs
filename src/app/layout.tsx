@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { TaskProvider } from "@/context/TaskContext";
+import { ToastProvider } from "@/context/ToastContext";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
                 <TaskProvider>
+                    <ToastProvider>
                     <div className="min-h-screen flex flex-col">
                         <header>
                             <Navbar />
@@ -45,6 +47,7 @@ export default function RootLayout({
                             </div>
                         </footer>
                     </div>
+                    </ToastProvider>
                 </TaskProvider>
             </body>
         </html>

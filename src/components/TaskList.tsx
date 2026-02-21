@@ -30,9 +30,12 @@ export default function TaskList({ tasks }: TaskListProps) {
                 onPriorityFilterChange={setPriorityFilter}
             />
             {filteredTasks.length === 0 ? (
-                <div className="text-center py-12">
-                    <p className="text-gray-500 dark:text-gray-400 text-lg">
-                        No tasks found matching your filters.
+                <div className="text-center py-12 px-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 transition-opacity">
+                    <p className="text-gray-600 dark:text-gray-400 text-lg mb-1">
+                        No tasks match your filters
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-500 text-sm">
+                        Try changing status or priority above.
                     </p>
                 </div>
             ) : (
