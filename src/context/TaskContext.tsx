@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Task, Priority, Status } from "@/types";
 import { loadTasks, saveTasks } from "@/lib/storage";
+import { generateId } from "@/lib/id";
 import { sampleTasks } from "@/data/sampleTasks";
 
 interface TaskContextType {
@@ -40,7 +41,7 @@ export function TaskProvider({ children }: { children: ReactNode }) {
     const addTask = (taskData: Omit<Task, "id" | "createdAt" | "updatedAt">) => {
         const newTask: Task = {
             ...taskData,
-            id: crypto.randomUUID(),
+            id: generateId(),
             createdAt: new Date(),
             updatedAt: new Date(),
         };
